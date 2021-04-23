@@ -1,3 +1,5 @@
+#this file will generate random employee data for each plant
+
 import random
 
 employee_id = 0 
