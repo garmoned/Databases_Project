@@ -29,9 +29,9 @@ INSERT INTO Wind_Plants VALUES
 (8, 72.43, 185),
 (9, 75.54, 230);
 
- INSERT INTO Client VALUES
- (1,"City of Dallas","Dallas"),
- (2, "Coin Mining Co","Austin"),
- (3, "Fiesta Texas", "San Antonio"),
- (4, "Amazon Web Services", "Austin"),
- (5, "Cloudflare" , "Austin");
+INSERT INTO Client VALUES
+(1,"City of Dallas","Dallas"),
+(2, "Coin Mining Co","Austin"),
+(3, "Fiesta Texas", "San Antonio"),
+(4, "Amazon Web Services", "Austin"),
+(5, "Cloudflare" , "Austin");
