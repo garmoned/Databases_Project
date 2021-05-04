@@ -13,3 +13,5 @@ FROM Energy_sold;
 
 
 -- Gets the solar plants where square_miles is less than 1000
+
+Error Code: 1062. Duplicate entry '2021-05-01' for key 'date'

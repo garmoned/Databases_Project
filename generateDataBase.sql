@@ -1,5 +1,5 @@
 
-DROP DATABASE IF EXISTS project;
+DROP DATABASE IF EXISTS TexasPower;
 CREATE DATABASE TexasPower;
 
 use TexasPower;
@@ -37,7 +37,7 @@ CREATE TABLE `Maintenance` (
 CREATE TABLE `Energy_Produced` (
   `kilowatts_produced` float,
   `plant` int,
-  `date` date UNIQUE
+  `date` date
 );
 
 CREATE TABLE `Energy_sold` (
