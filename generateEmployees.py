@@ -33,10 +33,10 @@ for plant_id in range(1,10):
         last_name = random.choice(names)
 
 
-        sqlValues = f'({employee_id},"{first_name}","{last_name}",{plant_id},{managed_by} ,{role})'
+        sqlValues = f"({employee_id},'{first_name}','{last_name}',{plant_id},{managed_by} ,{role}),"
 
         if(managed_by == None):
-            sqlValues = f'({employee_id},"{first_name}","{last_name}",{plant_id},NULL ,{role})'
+            sqlValues = f"({employee_id},'{first_name}','{last_name}',{plant_id},NULL ,{role}),"
 
 
         employeeDataFile.write(sqlValues + "\n")

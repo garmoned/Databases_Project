@@ -1,8 +1,8 @@
 
 DROP DATABASE IF EXISTS project;
-CREATE DATABASE project;
+CREATE DATABASE TexasPower;
 
-use project;
+use TexasPower;
 
 CREATE TABLE `Plant` (
   `plant_id` int UNIQUE PRIMARY KEY,
