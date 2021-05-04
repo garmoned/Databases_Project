@@ -13,6 +13,6 @@ with open('employeeData.txt') as f , open("employeeWork.txt",mode="w") as o:
         for date in dates:
             d = date.date()
             hours = random.randrange(4,8)
-            o.write(f"({employeeID}, {hours}, {d})\n")
+            o.write(f"({employeeID}, {hours}, '{d}'),\n")
         employeeID += 1 
     
