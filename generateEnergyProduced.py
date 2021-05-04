@@ -6,14 +6,16 @@ dates = pd.date_range(start="2021-05-01", periods=30)
 
 plantID = 0
 
-with open('energyData.txt') as file, open("energySold.txt", mode="w") as out:
-    for line in file.readlines():
-        for date in dates:
-            d = date.date()
-            #temp = [int(energy) for energy in line.split() if energy.isdigit()]
-            #energy_sold = temp.index(3)
-            energy_produced = random.randrange(2000*200, 6000*200)
-            # 2.43 MW per turbine, average 180-230 turbines, similar power to other green sources
-            # 150,000 MWh, 6250000 kW, on average for large hydro plant facilities
-            out.write(f"({energy_produced}, {plantID}, {d})\n")
-        plantID += 1
+# 2.43 MW per turbine, average 180-230 turbines, similar power to other green sources
+# 150,000 MWh, 6250000 kW, on average for large hydro plant facilities
+with open("energyProduced.txt", mode="w") as produced, open("energySold.txt", mode="w") as sold:
+    for date in dates:
+        d = date.date()
+        energy_produced = random.randrange(2000 * 200, 6000 * 200)
+        energy_sold = energy_produced / 5
+        produced.write(f"({energy_produced}, {plantID}, {d})\n")
+        for custID in range(5):
+            energy_price = round(random.uniform(1.0, 10.0), 2)
+            sold.write(f"({plantID}, {custID}, {d}, {energy_sold}, {energy_price})\n")
+    plantID += 1    # plants can have multiple customers, and multiple customers can have multiple plants per day
+
