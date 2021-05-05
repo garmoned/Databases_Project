@@ -9,9 +9,9 @@ FROM Energy_sold
 -- Gets how much money each plant spent on workers per day
 SELECT Hours_Worked.date, ROUND(CAST(Hours_Worked.hours_worked AS DECIMAL(7, 2)) * CAST(Role.pay_rate AS DECIMAL(7, 2)), 2) AS 'money_each_plant_spent_per_day'
 FROM Hours_Worked
-JOIN Role
-ON  Employee.employee_id = Hours_Worked.employee	-- Error Code: 1054, unknown column 'Employee.employee_id' in 'on clause'
 JOIN Employee
+ON Employee.employee_id = Hours_Worked.employee	-- Error Code: 1054, unknown column 'Employee.employee_id' in 'on clause'
+JOIN Role
 ON Employee.role = Role.role_id ;
 
 -- Gets the hydro plants where average_flowrate is greater than 3.50 m^2/s
