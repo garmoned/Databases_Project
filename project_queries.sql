@@ -4,15 +4,15 @@ from Plant join Energy_Produced E on Plant.plant_id = E.plant;
 
 -- Gets the total income per day for the entire month
 SELECT Energy_sold.date, ROUND(CAST(kilowatts_sold AS DECIMAL(7, 2)) * CAST(dollar_per_kilowatt AS DECIMAL(7, 2)), 2) AS 'total_income_per_day'
-FROM Energy_sold
+FROM Energy_sold;
 
 -- Gets how much money each plant spent on workers per day
 SELECT Hours_Worked.date, ROUND(CAST(Hours_Worked.hours_worked AS DECIMAL(7, 2)) * CAST(Role.pay_rate AS DECIMAL(7, 2)), 2) AS 'money_each_plant_spent_per_day'
 FROM Hours_Worked
 JOIN Employee
-ON Employee.employee_id = Hours_Worked.employee	-- Error Code: 1054, unknown column 'Employee.employee_id' in 'on clause'
+ON Employee.employee_id = Hours_Worked.employee
 JOIN Role
-ON Employee.role = Role.role_id ;
+ON Employee.role = Role.role_id;
 
 -- Gets the hydro plants where average_flowrate is greater than 3.50 m^2/s
 SELECT name
