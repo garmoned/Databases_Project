@@ -1,9 +1,9 @@
 use TexasPower;
 
 INSERT INTO Role VALUES
-(1,17,'Operator'),
-(2,11,'Cleaner'),
-(3,20,'Manager');
+(1, 17, 'Operator'),
+(2, 11, 'Cleaner'),
+(3, 20, 'Manager');
 
 INSERT INTO Plant VALUES
 (1, NULL, 'Luminant Station'),
@@ -32,13 +32,13 @@ INSERT INTO Wind_Plants VALUES
 (9, 75.54, 230);
 
 INSERT INTO `Client` VALUES
-(1,'City of Dallas','Dallas'),
-(2, 'Coin Mining Co','Austin'),
+(1, 'City of Dallas', 'Dallas'),
+(2, 'Coin Mining Co', 'Austin'),
 (3, 'Fiesta Texas', 'San Antonio'),
 (4, 'Amazon Web Services', 'Austin'),
 (5, 'Cloudflare' , 'Austin');
 
-insert into Employee Values
+INSERT INTO Employee VALUES
 (0,'OLIVER','KNOX',1,NULL ,3),
 (1,'JUAREZ','RICE',1,0 ,1),
 (2,'BAILEY','ELLIOTT',1,0 ,2),
@@ -85,7 +85,7 @@ insert into Employee Values
 (43,'ATKINS','CAIN',9,40 ,1),
 (44,'GONZALEZ','PERRY',9,40 ,2);
 
-insert into `Hours_Worked` values
+INSERT INTO `Hours_Worked` VALUES
 (0, 6, '2021-05-01'),
 (0, 7, '2021-05-02'),
 (0, 6, '2021-05-03'),
@@ -1440,20 +1440,20 @@ insert into `Hours_Worked` values
 
 
 -- this will update supervisors of the plants
-update Plant
-set Plant.supervisor = ( select employee_id 
-						from Employee e where e.works_at = Plant.plant_id and e.role = 3)
-where Plant.plant_id >= 1;
+UPDATE Plant
+SET Plant.supervisor = ( SELECT employee_id 
+						FROM Employee e WHERE e.works_at = Plant.plant_id AND e.role = 3)
+WHERE Plant.plant_id >= 1;
 
 
-insert into `Maintenance` values
+INSERT INTO `Maintenance` VALUES
 ('2021-05-07','2021-05-10','fixed leaks',124040.0,0,1),
 ('2021-05-07','2021-05-10','replaced filters',924340.0,6,2),
 ('2021-05-07','2021-05-10','replaced turbines',4344040.0,13,3),
 ('2021-05-07','2021-05-10','replaced engines',343440.0,21,4),
 ('2021-05-07','2021-05-10','replaced wiring',544120.0,27,5);
 
-insert into `Energy_Produced` values 
+INSERT INTO `Energy_Produced` VALUES
 (706920, 1, '2021-05-01'),
 (761022, 1, '2021-05-02'),
 (426829, 1, '2021-05-03'),
@@ -1725,8 +1725,7 @@ insert into `Energy_Produced` values
 (471508, 9, '2021-05-29'),
 (913409, 9, '2021-05-30');
 
-
-insert into Energy_sold values 
+INSERT INTO `energy_sold` VALUES
 (1, 1, '2021-05-04', 205102.0, 6.87),
 (1, 2, '2021-05-04', 205102.0, 5.79),
 (1, 3, '2021-05-04', 205102.0, 6.39),
@@ -2107,5 +2106,4 @@ insert into Energy_sold values
 (9, 1, '2021-05-27', 169533.6, 8.65),
 (9, 2, '2021-05-27', 169533.6, 4.19),
 (9, 1, '2021-05-29', 94301.6, 2.12);
-
 

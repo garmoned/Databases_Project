@@ -7,11 +7,20 @@ SELECT Energy_sold.date, ROUND(CAST(kilowatts_sold AS DECIMAL(7, 2)) * CAST(doll
 FROM Energy_sold
 
 -- Gets how much money each plant spent on workers per day
-
+SELECT Hours_Worked.date, ROUND(CAST(Hours_Worked.hours_worked AS DECIMAL(7, 2)) * CAST(Role.pay_rate AS DECIMAL(7, 2)), 2) AS 'money_each_plant_spent_per_day'
+FROM Hours_Worked
+JOIN Role
+ON  Employee.employee_id = Hours_Worked.employee	-- Error Code: 1054, unknown column 'Employee.employee_id' in 'on clause'
+JOIN Employee
+ON Employee.role = Role.role_id ;
 
 -- Gets the hydro plants where average_flowrate is greater than 3.50 m^2/s
-
+SELECT name
+FROM Plant join Hydro_Plants H on Plant.plant_id = H.plant
+WHERE average_flowrate > 3.50;
 
 -- Gets the solar plants where square_miles is less than 1000
+SELECT name 
+FROM Plant join Solar_Plants S on Plant.plant_id = S.plant
+WHERE square_miles < 1000;
 
-Error Code: 1062. Duplicate entry '2021-05-01' for key 'date'
